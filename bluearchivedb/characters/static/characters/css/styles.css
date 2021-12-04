@@ -1,0 +1,102 @@
+/*
+Base Colors
+#F8F9FB
+#F0FAFC
+#B9DFF2
+
+Sub Colors
+#2D4A72
+#75DCFF
+#AAE1F6
+
+Accent Colors
+#FBCF30
+#F6E94B
+*/
+
+/*
+WHITE: #FDFDFD
+LIGHT BLUE: #D6EAF1
+DARK BLUE: #2F4665
+GREY: #4E5255
+LIGHT GREY:#D0D3D8
+EXPLOSIVE: #920108
+PIERCING: #BE8801
+MYSTIC: #226F9B
+*/
+
+/* LAYOUT */
+body{
+    background-color:#D6EAF1;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+.main-content{
+    background-color:#C9E6F7;
+    color:#2F4665;
+    border-radius: 5px;
+}
+
+.info-content{
+    background-color:#FDFDFD;
+    text-align:center;
+    border-radius: 5px;
+    
+}
+
+.basic-info{
+    text-align: left;
+}
+
+.type{
+    color:#4E5255;
+    border-style: solid solid none;
+    border-width: 2px;
+    border-color: #D0D3D8;
+    border-radius:5px 5px 0px 0px;
+}
+
+.role{
+    color:#2F4665;
+}
+
+.position{
+    background-color:#2F4665;
+    color:#FDFDFD;
+}
+
+.explosive{
+    background-color:#920108;
+    color:#FDFDFD;
+    border-radius: 0px 0px 5px 5px;
+}
+.piercing{
+    background-color:#BE8801;
+    color:#FDFDFD;
+    border-radius: 0px 0px 5px 5px;
+}
+.mystic{
+    background-color:#226F9B;
+    color:#FDFDFD;
+    border-radius: 0px 0px 5px 5px;
+}
+
+
+.skill{
+    text-align: left;
+    color:#2F4665;
+}
+
+.character-portrait{
+    height:550px;
+}
+
+.frame{
+    border-style: solid;
+    border-width: 2px;
+    border-color: #FBCF30;
+    border-radius:5px;
+    background-color:#FDFDFD ;
+}
+

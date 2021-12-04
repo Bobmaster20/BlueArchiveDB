@@ -1,0 +1,73 @@
+<!-- Battle Info row -->
+<div class="row justify-content-center">
+    <div class="col-4">
+        <div class="role">
+            {{ character.role }}
+        </div>
+        <div class="position">
+            {{ character.position }}
+        </div>
+    </div>
+    <!-- Attack Type -->
+    <div class="col-4">
+        <div class="type">
+            Attack Type
+        </div>
+        {% if character.damage == "Explosive" %}
+        <div class="explosive">
+        {% elif character.damage == "Piercing" %}
+        <div class="piercing">
+        {% else %}
+        <div class="mystic">
+        {% endif %}
+            {{ character.damage }}
+        </div>
+    </div>
+    <!-- Defense Type -->
+    <div class="col-4">
+        <div class="type">
+            Defense Type
+        </div>
+        {% if character.armor == "Light" %}
+        <div class="explosive">
+        {% elif character.armor == "Heavy" %}
+        <div class="piercing">
+        {% else %}
+        <div class="mystic">
+        {% endif %}
+            {{ character.armor }}
+        </div>
+    </div>
+</div>
+
+
+
+<!-- EX Skill -->
+<div class="row skill">
+    <div class="col">
+        {{ character.ex_title }}
+        Cost: {{ character.ex_cost }}
+        <p>{{ character.ex_desc }}</p>
+    </div>
+</div>
+<!-- Basic Skill -->
+<div class="row skill">
+    <div class="col">
+        {{ character.basic_title }}
+        <p>{{ character.basic_desc }}</p>
+    </div>
+</div>
+<!-- Enhanced Skill -->
+<div class="row skill">
+    <div class="col">
+        {{ character.enhanced_title }}
+        <p>{{ character.enhanced_desc }}</p>
+    </div>
+</div>
+<!-- Sub Skill -->
+<div class="row">
+    <div class="col skill">
+        {{ character.sub_title }}
+        <p>{{ character.sub_desc }}</p>
+    </div>
+</div>

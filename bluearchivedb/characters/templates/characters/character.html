@@ -1,0 +1,32 @@
+{% extends 'characters/layout.html' %}  
+{% load static %}
+{% block body %}
+<div class="row main-content p-5 justify-content-between">
+    <!-- Left side character -->
+    <div class="col-lg-5 col-md-12">
+        <div class="frame text-center py-4">
+            <img class=character-portrait src="{% static 'characters/img/students/' %}{{character.name.lower}}/{{character.name.lower}}_full.png" alt="">
+        </div>
+    </div>
+    <!-- Right side info section -->
+    <div class="col-lg-6 col-sm-12">
+        <!-- Character Info -->
+        <div class="row ">
+            <!-- Basic Info -->
+            <div class="display-3">{{ character.name }}</div>
+            <!-- Rarity -->
+            <div class="col-3 align-self-center">
+                {% for star in character.rarity %}
+                    <img src="{% static 'characters/img/icons/star_icon.png' %}" alt="" height="25px">
+                {% endfor %}
+            </div>
+            <p class="lead my-3">{{ character.desc_head }}</p>
+            <p class="lead my-3">{{ character.desc_body }}</p>
+            <div class="col-4">
+                {{ character.school }}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
