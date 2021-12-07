@@ -16,10 +16,10 @@ Accent Colors
 
 /*
 WHITE: #FDFDFD
-LIGHT BLUE: #D6EAF1
-DARK BLUE: #2F4665
+LIGHT BLUE: #DAEEFD
+DARK BLUE: #304E72
 GREY: #4E5255
-LIGHT GREY:#D0D3D8
+LIGHT GREY:#F6F6F6
 EXPLOSIVE: #920108
 PIERCING: #BE8801
 MYSTIC: #226F9B
@@ -27,26 +27,68 @@ MYSTIC: #226F9B
 
 /* LAYOUT */
 body{
-    background-color:#D6EAF1;
+    background-color:#DAEEFD;
     font-weight: bold;
-    font-family: sans-serif;
+    font-family: Noto Sans Display;
 }
 
 .main-content{
-    background-color:#C9E6F7;
-    color:#2F4665;
-    border-radius: 5px;
-}
-
-.info-content{
     background-color:#FDFDFD;
-    text-align:center;
+    color:#00365C;
     border-radius: 5px;
-    
 }
 
-.basic-info{
-    text-align: left;
+.name{
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+.rarity{
+    float:right;
+}
+
+.basic-divider{
+    text-align: center;
+    background-color:#304E72 ;
+    color:#FDFDFD;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.desc{
+    color:#00365C;
+}
+
+.school-icon{
+    border-style: solid;
+    border-width: 2px;
+    border-color: #D0D3D8;
+    border-radius:5px;
+    padding-top:5px;
+    padding-left:5px;
+    padding-right:5px;
+    margin-right: 10px;
+    width:64px;
+    float:left;
+}
+
+
+.school-title{
+    font-size: 16px;
+    overflow: hidden;
+}
+
+.club{
+    border-style: none none solid none;
+    border-width: 2px;
+    border-color: #D0D3D8;
+    overflow: hidden;
+}
+
+
+
+.combat-info{
+    text-align: center;
 }
 
 .type{
@@ -59,11 +101,16 @@ body{
 
 .role{
     color:#2F4665;
+    border-style: solid solid none;
+    border-width: 2px;
+    border-color: #D0D3D8;
+    border-radius:5px 5px 0px 0px;
 }
 
 .position{
     background-color:#2F4665;
     color:#FDFDFD;
+    border-radius: 0px 0px 5px 5px;
 }
 
 .explosive{
@@ -83,13 +130,15 @@ body{
 }
 
 
-.skill{
-    text-align: left;
-    color:#2F4665;
+.equip{
+    border-style: solid;
+    border-width: 2px;
+    border-color: #D0D3D8;
+    border-radius:5px;
 }
 
 .character-portrait{
-    height:550px;
+    height:650px;
 }
 
 .frame{
@@ -97,6 +146,8 @@ body{
     border-width: 2px;
     border-color: #FBCF30;
     border-radius:5px;
-    background-color:#FDFDFD ;
+    background-image: url('/static/characters/img/portrait_bg.png');
 }
+
+
 

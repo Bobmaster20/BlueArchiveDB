@@ -1,7 +1,7 @@
 {% extends 'characters/layout.html' %}  
 {% load static %}
 {% block body %}
-<div class="row main-content p-5 justify-content-between">
+<div class="row main-content p-5 justify-content-center">
     <!-- Left side character -->
     <div class="col-lg-5 col-md-12">
         <div class="frame text-center py-4">
@@ -12,21 +12,105 @@
     <div class="col-lg-6 col-sm-12">
         <!-- Character Info -->
         <div class="row ">
-            <!-- Basic Info -->
-            <div class="display-3">{{ character.name }}</div>
-            <!-- Rarity -->
-            <div class="col-3 align-self-center">
-                {% for star in character.rarity %}
-                    <img src="{% static 'characters/img/icons/star_icon.png' %}" alt="" height="25px">
-                {% endfor %}
+            <!-- School Info -->
+            <div class="col-12">
+                <div>
+                    <div class="school-icon"><img src="{% static 'characters/img/schools/' %}{{character.school.lower.split.0}}_icon.png" alt="" height="45px" width="50px"></div>
+                    <div class="school-title">{{ character.school }}</div>
+                    <div class="club">Abydos Foreclosure Task Force</div>
+                </div>
             </div>
-            <p class="lead my-3">{{ character.desc_head }}</p>
-            <p class="lead my-3">{{ character.desc_body }}</p>
-            <div class="col-4">
-                {{ character.school }}
+            <!-- Name & Rarity -->
+            <div class="col-12">
+                <div class="display-4 name">
+                    {{ character.name }}
+                    <span class="rarity">
+                    {% for star in character.rarity %}
+                        <img src="{% static 'characters/img/icons/star_icon.png' %}" alt="" height="25px">
+                    {% endfor %}
+                    </span>
+                </div>
+            </div>
+            
+            <!-- Basic Stats -->
+            <div class="col-12">
+                <div class="basic-divider">
+                    BASIC INFO
+                </div>
+            </div>
+            
+            <!-- Combat Info -->
+            <!-- Attack Type -->
+            <div class="col-md-4 col-sm-12 text-center py-2">
+                <div class="type">
+                    Attack Type
+                </div>
+                {% if character.damage == "Explosive" %}
+                <div class="explosive">
+                    {{ character.damage.upper }}
+                </div>
+                {% elif character.damage == "Piercing" %}
+                <div class="piercing">
+                    {{ character.damage.upper }}
+                </div>
+                {% else %}
+                <div class="mystic">
+                    {{ character.damage.upper }}
+                </div>
+                {% endif %}
+                    
+            </div>
+            <!-- Defense Type -->
+            <div class="col-md-4 col-sm-12 text-center py-2">
+                <div class="type">
+                    Defense Type
+                </div>
+                {% if character.armor == "Light" %}
+                <div class="explosive">
+                    {{ character.armor.upper }}
+                </div>
+                {% elif character.armor == "Heavy" %}
+                <div class="piercing">
+                    {{ character.armor.upper }}
+                </div>
+                {% else %}
+                <div class="mystic">
+                    {{ character.armor.upper }}
+                </div>
+                {% endif %}
+                    
+            </div>
+            <!-- Role & Position -->
+            <div class="col-md-4 col-sm-12 text-center py-2">
+                <div class="role">
+                    {{ character.role.upper }}
+                </div>
+                <div class="position">
+                    {{ character.position.upper }}
+                </div>
+            </div>
+            <!-- Equipment Info -->
+            <!-- Weapon -->
+            <div class="col-md-3 text-center py-2">
+                <div class="equip"><img src="{% static 'characters/img/weapons/' %}{{character.weapon.lower}}_icon.png" alt="" height="55px"><div>{{ character.weapon }}</div></div>
+            </div>
+            <div class="col-md-3 text-center py-2 ">
+                <div class="equip"><img src="{% static 'characters/img/equipment/' %}{{character.equip_1.lower}}_icon.png" alt="" height="55px"><div>{{ character.equip_1 }}</div></div>
+            </div>
+            <div class="col-md-3 text-center py-2 ">
+                <div class="equip"><img src="{% static 'characters/img/equipment/' %}{{character.equip_2.lower}}_icon.png" alt="" height="55px"><div>{{ character.equip_2 }}</div></div>
+            </div>
+            <div class="col-md-3 text-center py-2">
+                <div class="equip"><img src="{% static 'characters/img/equipment/' %}{{character.equip_3.lower}}_icon.png" alt="" height="55px"><div>{{ character.equip_3 }}</div></div>
+            </div>
+            <!-- Profile -->
+            <div class="desc">
+                <p class="my-3">{{ character.desc_head }}</p>
+                <p class="my-3">{{ character.desc_body }}</p>
             </div>
         </div>
     </div>
+    
 </div>
 
 {% endblock %}

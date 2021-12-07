@@ -15,13 +15,18 @@
         </div>
         {% if character.damage == "Explosive" %}
         <div class="explosive">
+            {{ character.damage.upper }}
+        </div>
         {% elif character.damage == "Piercing" %}
         <div class="piercing">
+            {{ character.damage.upper }}
+        </div>
         {% else %}
         <div class="mystic">
-        {% endif %}
-            {{ character.damage }}
+            {{ character.damage.upper }}
         </div>
+        {% endif %}
+            
     </div>
     <!-- Defense Type -->
     <div class="col-4">
@@ -30,13 +35,18 @@
         </div>
         {% if character.armor == "Light" %}
         <div class="explosive">
+            {{ character.armor.upper }}
+        </div>
         {% elif character.armor == "Heavy" %}
         <div class="piercing">
+            {{ character.armor.upper }}
+        </div>
         {% else %}
         <div class="mystic">
-        {% endif %}
-            {{ character.armor }}
+            {{ character.armor.upper }}
         </div>
+        {% endif %}
+            
     </div>
 </div>
 

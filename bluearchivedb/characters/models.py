@@ -1,5 +1,5 @@
 from django.db import models
-from django.db.models.fields import IntegerField
+from django.db.models.fields import CharField, IntegerField
 from django.conf import settings
 import os
 
@@ -14,14 +14,20 @@ class Character(models.Model):
         (ONE_STAR,"1 Star"),(TWO_STAR,"2 Star"),(THREE_STAR,"3 Star")
     )
     # SCHOOL
-    ABYDOS,GEHENNA,MILLENNIUM,TRINITY = "Abydos","Gehenna", "Millennium","Trinity"
-    HYAKKIYAKO,SHANHAIJING,RED_WINTER,VALKYRIE = "Hyakkiyako","Shanhaijing", "Red Winter","Valkyrie"
-    ARIUS = "Arius"
+    ABYDOS,GEHENNA,MILLENNIUM,TRINITY = "Abydos High School","Gehenna Academy", "Millennium Science School","Trinity General School"
+    HYAKKIYAKO,SHANHAIJING = "Allied Hyakkiyako Academy","Shanhaijing Senior Secondary School"
+    # RED_WINTER,VALKYRIE,ARIUS = "Red Winter","Valkyrie","Arius"
     SCHOOL_CHOICES = (
-        (ABYDOS,"Abydos"),(GEHENNA,"Gehenna"),(MILLENNIUM,"Millennium"),(TRINITY,"Trinity"),
-        (HYAKKIYAKO,"Hyakkiyako"),(SHANHAIJING,"Shanhaijing"),(RED_WINTER,"Red Winter"),(VALKYRIE,"Valkyrie"),
-        (ARIUS,"Arius")
+        (ABYDOS,"Abydos High School"),(GEHENNA,"Gehenna Academy"),(MILLENNIUM,"Millennium Science School"),(TRINITY,"Trinity General School"),
+        (HYAKKIYAKO,"Allied Hyakkiyako Academy"),(SHANHAIJING,"Shanhaijing Senior Secondary School")
+        # (RED_WINTER,"Red Winter"),(VALKYRIE,"Valkyrie"),(ARIUS,"Arius")
     )
+    # CLUB
+    
+
+
+
+
     # ROLE
     ATTACKER,SUPPORT,TANK,HEALER,TACTICAL = "Attacker","Support","Tank","Healer","Tactical"
     ROLE_CHOICES = (
@@ -39,9 +45,10 @@ class Character(models.Model):
         (BACK,"Back"),
     )
     # WEAPON
-    HG,AR,MG,SG,SMG,SR,RF,GL = "HG","AR","MG","SG","SMG","SR","RF","GL"
+    HG,AR,MG,SG,DSG,SMG,SR,MT,GL = "HG","AR","MG","SG","DSG","SMG","SR","MT","GL"
     WEAPON_CHOICES = (
-        (HG,"HG"),(AR,"AR"),(MG,"MG"),(SG,"SG"),(SMG,"SMG"),(SR,"SR"),(RF,"RF"),(GL,"GL")
+        (HG,"Handgun"),(AR,"Assault Rifle"),(MG,"Machine Gun"),(SG,"Shotgun"),(DSG,"Dual Shotgun"),
+        (SMG,"Submachine Gun"),(SR,"Sniper Rifle"),(MT,"Mortar"),(GL,"Grenade Launcher")
     )
     # DAMAGE
     NORMAL,EXPLOSIVE,PIERCING,MYSTIC = "Normal","Explosive","Piercing","Mystic"
@@ -66,14 +73,33 @@ class Character(models.Model):
     # OFFENSIVE_BUFF,DEFENSIVE_BUFF,OFFENSIVE_DEBUFF,DEFENSIVE_DEBUFF = "OFFENSIVE_BUFF"
     # SINGLE_DMG,AOE_DMG,FAN_DMG,LINE_DMG,SCALING_DMG = ""
     # HEAL,REGEN,BARRIER = ""
+    
+    # Equip 1
+    HAT,GLOVES,SHOES ="Hat","Gloves","Shoes"
+    EQUIP_1_CHOICES =(
+        (HAT,"Hat"),(GLOVES,"Gloves"),(SHOES,"Shoes")
+    )
 
+    # Equip 2
+    HAIRPIN,BAG,BADGES ="Hairpin","Bag","Badges"
+    EQUIP_2_CHOICES =(
+        (HAIRPIN,"Hairpin"),(BAG,"Bag"),(BADGES,"Badges")
+    )
 
+    # Equip 3
+    WRISTWATCH,AMULET,NECKLACE ="Wristwatch","Amulet","Necklace"
+    EQUIP_3_CHOICES =(
+        (WRISTWATCH,"Wristwatch"),(AMULET,"Amulet"),(NECKLACE,"Necklace")
+    )
 
+    # Basic Info
     name = models.CharField(max_length=64)
     desc_head = models.CharField(max_length=128,default="")
     desc_body = models.TextField(max_length=384,default="")
     rarity = models.CharField(max_length=3,default=ONE_STAR,choices=RARITY_CHOICES)
     school = models.CharField(max_length=64,default=ABYDOS,choices=SCHOOL_CHOICES)
+
+
     role = models.CharField(max_length=64,default=ATTACKER,choices=ROLE_CHOICES)
     position = models.CharField(max_length=64,default=FRONT,choices=POSITION_CHOICES)
     weapon = models.CharField(max_length=3,default=HG,choices=WEAPON_CHOICES)
@@ -92,9 +118,9 @@ class Character(models.Model):
     # attack = models.IntegerField()
     # defense = models.IntegerField()
     # healing = models.IntegerField()
-    # equip_1 = models.CharField(max_length=64)
-    # equip_2 = models.CharField(max_length=64)
-    # equip_3 = models.CharField(max_length=64)
+    equip_1 = models.CharField(max_length=64,default=HAT,choices=EQUIP_1_CHOICES)
+    equip_2 = models.CharField(max_length=64,default=HAIRPIN,choices=EQUIP_2_CHOICES)
+    equip_3 = models.CharField(max_length=64,default=WRISTWATCH,choices=EQUIP_3_CHOICES)
 
 
     def __str__(self):
